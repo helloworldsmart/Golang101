@@ -52,3 +52,83 @@ func copy() {
 	num := copy(y, x)
 	fmt.Println(y, num)
 }
+
+func mapFunc() {
+	// var nilMap map[string]int
+	totalWinss := map[string]int{}
+
+	teams := map[string][]string{
+		"Orcas": []string{"Fred", "Ralph", "Bijou"},
+		"Lions": []string{"Sarah", "Peter", "Billie"},
+	}
+	ages := make(map[int][]string, 10)
+}
+
+func okMap() {
+	m := map[string]int{
+		"hello": 5,
+		"world": 0,
+	}
+	v, ok := m["hello"]
+	fmt.Println(v, ok)
+
+	k, ok := m["goodbye"]
+	fmt.Println(k, ok)
+
+	delete(m, "hello")
+}
+
+func set() {
+	intSet := map[int]bool{}
+	vals := []int{5, 10, 2, 5, 8, 7, 3, 9, 1, 2, 10}
+	for _, v := range vals {
+		intSet[v] = true
+	}
+	fmt.Println(len(vals), len(intSet))
+	fmt.Println(intSet[5])
+	fmt.Println(intSet[500])
+	if intSet[100] {
+		fmt.Println("100 is in the set")
+	}
+}
+
+func structTest() {
+	type person struct {
+		name string
+		age  int
+		pet  string
+	}
+
+	var fred person
+
+	bob := person{}
+
+	julia := person{
+		"Julia",
+		40,
+		"cat",
+	}
+
+	bob.name = "Bob"
+	fmt.Println(julia.name)
+}
+
+func anonymousStruct() {
+	var person struct {
+		name string
+		age  int
+		pet  string
+	}
+
+	person.name = "bob"
+	person.age = 50
+	person.pet = "dog"
+
+	pet := struct {
+		name string
+		kind string
+	}{
+		name: "Fido",
+		kind: "dog",
+	}
+}
