@@ -79,6 +79,15 @@ func divAndRemainder(numerator int, denominator int) (int, int, error) {
 	return numerator / denominator, numerator % denominator, nil
 }
 
+func divAndRemainder2(numerator, denominator int) (result int, remainder int, err error) {
+
+	result, remainder = 20, 30
+	if denominator == 0 {
+		return 0, 0, errors.New("cannot divide by zero")
+	}
+	return numerator / denominator, numerator % denominator, nil
+}
+
 func tutorial() {
 
 }
