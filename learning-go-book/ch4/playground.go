@@ -6,6 +6,10 @@ import (
 )
 
 func main() {
+	shadowingVariable()
+}
+
+func sampleCode() {
 	n := rand.Intn(10)
 	if n == 0 {
 		fmt.Println("That's too low")
@@ -14,6 +18,17 @@ func main() {
 	} else {
 		fmt.Println("That's a good number:", n)
 	}
+}
+
+// 4-1
+func shadowingVariable() {
+	x := 10
+	if x > 5 {
+		fmt.Println(x)
+		x := 5
+		fmt.Println(x)
+	}
+	fmt.Println(x)
 }
 
 func forTutorial() {
@@ -79,5 +94,5 @@ func forTutorial() {
 		for k, v := range m {
 			fmt.Println(k, v)
 		}
-	} 
+	}
 }
