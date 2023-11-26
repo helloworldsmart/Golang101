@@ -19,7 +19,10 @@ func main() {
 	//forRange2()
 	//forRange3()
 	//forRange4()
-	forRange5()
+	//forRange5()
+	//forRange6()
+	//forRange7()
+	forRange8()
 }
 
 func sampleCode() {
@@ -206,6 +209,35 @@ func forRange5() {
 			fmt.Println(i, r, string(r))
 		}
 		fmt.Println()
+	}
+}
+
+func forRange6() {
+	evenVals := []int{2, 4, 6, 8, 10, 12}
+	for _, v := range evenVals {
+		v *= 2
+	}
+	fmt.Println(evenVals)
+}
+
+func forRange7() {
+	samples := []string{"hello", "apple_π!"}
+outer:
+	for _, sample := range samples {
+		for i, r := range sample {
+			fmt.Println(i, r, string(r))
+			if r == 'l' {
+				continue outer
+			}
+		}
+		fmt.Println()
+	}
+}
+
+func forRange8() {
+	evenVals := []int{2, 4, 6, 8, 10}
+	for i := 1; i < len(evenVals)-1; i++ {
+		fmt.Println(i, evenVals[i])
 	}
 }
 
