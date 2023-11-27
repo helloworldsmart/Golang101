@@ -98,7 +98,10 @@ func mul(i int, j int) int { return i * j }
 
 func div(i int, j int) int { return i / j }
 
-var opMap = map[string]func(int, int) int{
+type opFuncType func(int, int) int
+
+// var opMap = map[string]func(int, int) int{
+var opMap = map[string]opFuncType{
 	"+": add,
 	"-": sub,
 	"*": mul,
