@@ -4,21 +4,23 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func main() {
 	//divMain()
 	//myFuncMain()
 	//addToMain()
-	divAndRemainderMain()
+	//divAndRemainderMain()
+	calculatorMain()
 }
 
 func divMain() {
-	result := div(5, 2)
+	result := divTutorial(5, 2)
 	fmt.Println(result)
 }
 
-func div(numerator int, denominator int) int {
+func divTutorial(numerator int, denominator int) int {
 	if denominator == 0 {
 		return 0
 	}
@@ -86,6 +88,57 @@ func divAndRemainder2(numerator, denominator int) (result int, remainder int, er
 		return 0, 0, errors.New("cannot divide by zero")
 	}
 	return numerator / denominator, numerator % denominator, nil
+}
+
+func add(i int, j int) int { return i + j }
+
+func sub(i int, j int) int { return i - j }
+
+func mul(i int, j int) int { return i * j }
+
+func div(i int, j int) int { return i / j }
+
+var opMap = map[string]func(int, int) int{
+	"+": add,
+	"-": sub,
+	"*": mul,
+	"/": div,
+}
+
+func calculatorMain() {
+	expressions := [][]string{
+		[]string{"2", "+", "3"},
+		[]string{"2", "-", "3"},
+		[]string{"2", "*", "3"},
+		[]string{"2", "/", "3"},
+		[]string{"2", "%", "3"},
+		[]string{"two", "+", "three"},
+		[]string{"5"},
+	}
+	for _, expression := range expressions {
+		if len(expression) != 3 {
+			fmt.Println("invalid expression:", expression)
+			continue
+		}
+		p1, err := strconv.Atoi(expression[0])
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		op := expression[1]
+		opFunc, ok := opMap[op]
+		if !ok {
+			fmt.Println("unsupported operator:", op)
+			continue
+		}
+		p2, err := strconv.Atoi(expression[2])
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		result := opFunc(p1, p2)
+		fmt.Println(result)
+	}
 }
 
 // Not Good
