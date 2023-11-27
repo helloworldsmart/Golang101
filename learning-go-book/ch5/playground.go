@@ -12,7 +12,8 @@ func main() {
 	//myFuncMain()
 	//addToMain()
 	//divAndRemainderMain()
-	calculatorMain()
+	//calculatorMain()
+	anonymousFunc()
 }
 
 func divMain() {
@@ -152,6 +153,14 @@ func calculatorMain() {
 		}
 		result := opFunc(p1, p2)
 		fmt.Println(result)
+	}
+}
+
+func anonymousFunc() {
+	for i := 0; i < 5; i++ {
+		func(j int) {
+			fmt.Println("printing", j, "from inside of an anonymous function")
+		}(i)
 	}
 }
 
