@@ -15,7 +15,8 @@ func main() {
 	//divAndRemainderMain()
 	//calculatorMain()
 	//anonymousFunc()
-	handlePeople()
+	//handlePeople()
+	makeMultMain()
 }
 
 func divMain() {
@@ -166,6 +167,7 @@ func anonymousFunc() {
 	}
 }
 
+// MARK: 將函數當成參數來傳遞
 type Person struct {
 	FirstName string
 	LastName  string
@@ -191,6 +193,21 @@ func handlePeople() {
 		return people[i].Age < people[j].Age
 	})
 	fmt.Println(people)
+}
+
+// MARK: 從函數回傳函式
+func makeMult(base int) func(int) int {
+	return func(factor int) int {
+		return base * factor
+	}
+}
+
+func makeMultMain() {
+	twoBase := makeMult(2)
+	threeBase := makeMult(3)
+	for i := 0; i < 3; i++ {
+		fmt.Println("two", twoBase(i), "three", threeBase(i))
+	}
 }
 
 func tutorial() {
