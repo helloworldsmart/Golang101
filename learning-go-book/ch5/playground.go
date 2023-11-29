@@ -275,6 +275,15 @@ func getFileMain() {
 	defer closer()
 }
 
+type person struct {
+	age  int
+	name string
+}
+
+func modifyFails(i int, s string, p person) {
+	i = i
+}
+
 func tutorial() {
 
 }
