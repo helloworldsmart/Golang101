@@ -21,7 +21,8 @@ func main() {
 	//anonymousFunc()
 	//handlePeople()
 	//makeMultMain()
-	deferMain()
+	//deferMain()
+	getFileMain()
 }
 
 func divMain() {
@@ -263,6 +264,15 @@ func getFile(name string) (*os.File, func(), error) {
 	return file, func() {
 		file.Close()
 	}, nil
+}
+
+func getFileMain() {
+	//f, closer, err := getFile(os.Args[1])
+	_, closer, err := getFile(os.Args[1])
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer closer()
 }
 
 func tutorial() {
