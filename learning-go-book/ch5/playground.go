@@ -1,6 +1,8 @@
 package main
 
 import (
+	"context"
+	"database/sql"
 	"errors"
 	"fmt"
 	"io"
@@ -231,6 +233,36 @@ func deferMain() {
 		}
 		break
 	}
+}
+
+func DoSomeInserts(ctx context.Context, db *sql.DB, value1, value2 string) (err error) {
+	tx, err := db.BeginTx(ctx, nil)
+	if err != nil {
+		return err
+	}
+	defer func() {
+		if err == nil {
+			err = tx.Commit()
+		}
+		if err != nil {
+			tx.Rollback()
+		}
+	}()
+	_, err = tx.ExecContext(ctx, "INSERT INTO FOO (val) values $1", value1)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func getFile(name string) (*os.File, func(), error) {
+	file, err := os.Open(name)
+	if err != nil {
+		return nil, nil, nil
+	}
+	return file, func() {
+		file.Close()
+	}, nil
 }
 
 func tutorial() {
