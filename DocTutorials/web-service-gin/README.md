@@ -56,5 +56,8 @@ curl http://localhost:8080/albums \
 --request "GET"
 ```
 
+7. GET getAlbumByID
 
-
+```shell
+curl http://localhost:8080/albums/2
+```
