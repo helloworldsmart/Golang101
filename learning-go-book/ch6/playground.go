@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	//tutorial2()
@@ -86,3 +88,33 @@ func tutorial7() {
 	update(&x)
 	fmt.Println(x)
 }
+
+// p.125
+type Foo struct {
+	Field1 string
+	Field2 int
+}
+
+// Bad
+func makeFoo(f *Foo) error {
+	f.Field1 = "val"
+	f.Field2 = 20
+	return nil
+}
+
+// GOOD
+func makeFoo2() (Foo, error) {
+	f := Foo{
+		Field1: "val",
+		Field2: 20,
+	}
+	return f, nil
+}
+
+//func tutorial8() {
+//	f := struct {
+//		Name string `json:"name"`
+//		Age int `json:"age"`
+//	}
+//	err := json.Unmarshal([]byte(`{"name": "Bob", "age": 30}`), &f)
+//}
