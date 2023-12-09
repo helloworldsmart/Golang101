@@ -6,7 +6,8 @@ func main() {
 	//tutorial2()
 	//tutorial4()
 	//tutorial5()
-	tutorial6()
+	//tutorial6()
+	tutorial7()
 }
 
 func tutorial() {
@@ -67,4 +68,21 @@ func tutorial6() {
 
 func stringp(s string) *string {
 	return &s
+}
+
+func failedUpdate(px *int) {
+	x2 := 20
+	px = &x2
+}
+
+func update(px *int) {
+	*px = 20
+}
+
+func tutorial7() {
+	x := 10
+	failedUpdate(&x)
+	fmt.Println(x)
+	update(&x)
+	fmt.Println(x)
 }
