@@ -9,7 +9,8 @@ func main() {
 	//tutorial()
 	//tutorial1()
 	//tutorial2()
-	tutorial3()
+	//tutorial3()
+	tutorial4()
 }
 
 type Person struct {
@@ -124,4 +125,18 @@ func tutorial3() {
 	// 方法表達值
 	f2 := Adder.AddTo
 	fmt.Println(f2(myAdder, 15))
+}
+
+type HighScore Score
+type Employee Person
+
+func tutorial4() {
+	var i int = 300
+	var s Score = 100
+	var hs HighScore = 200
+	// hs = s // Cannot use 's' (type Score) as the type HighScore
+	//s = i
+	s = Score(i)
+	hs = HighScore(s)
+	fmt.Println(hs)
 }
