@@ -8,7 +8,8 @@ import (
 func main() {
 	//tutorial()
 	//tutorial1()
-	tutorial2()
+	//tutorial2()
+	tutorial3()
 }
 
 type Person struct {
@@ -102,4 +103,25 @@ func tutorial2() {
 	it = it.Insert(2)
 	fmt.Println(it.Contains(2))  // true
 	fmt.Println(it.Contains(12)) // false
+}
+
+type Adder struct {
+	start int
+}
+
+func (a Adder) AddTo(val int) int {
+	return a.start + val
+}
+
+func tutorial3() {
+	myAdder := Adder{start: 10}
+	fmt.Println(myAdder.AddTo(5))
+
+	// 方法值
+	f1 := myAdder.AddTo
+	fmt.Println(f1(10))
+
+	// 方法表達值
+	f2 := Adder.AddTo
+	fmt.Println(f2(myAdder, 15))
 }
