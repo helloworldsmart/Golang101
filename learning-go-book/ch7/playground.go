@@ -10,7 +10,9 @@ func main() {
 	//tutorial1()
 	//tutorial2()
 	//tutorial3()
-	tutorial4()
+	//tutorial4()
+	//tutorial5()
+	tutorial6()
 }
 
 type Person struct {
@@ -139,4 +141,56 @@ func tutorial4() {
 	s = Score(i)
 	hs = HighScore(s)
 	fmt.Println(hs)
+}
+
+type Employee2 struct {
+	Name string
+	ID   string
+}
+
+func (e Employee2) Description() string {
+	return fmt.Sprintf("%s (%s)", e.Name, e.ID)
+}
+
+type Manager struct {
+	Employee2
+	Reports []Employee2
+}
+
+func (m Manager) FindNewEmployee() []Employee2 {
+	// Do something
+	return []Employee2{}
+}
+
+func tutorial5() {
+	m := Manager{
+		Employee2: Employee2{
+			Name: "Bob Bobson",
+			ID:   "123456",
+		},
+		Reports: []Employee2{},
+	}
+
+	fmt.Println(m.ID)
+	fmt.Println(m.Description())
+}
+
+type Inner struct {
+	X int
+}
+
+type Outer struct {
+	Inner
+	X int
+}
+
+func tutorial6() {
+	o := Outer{
+		Inner: Inner{
+			X: 10,
+		},
+		X: 20,
+	}
+	fmt.Println(o.X)
+	fmt.Println(o.Inner.X)
 }
