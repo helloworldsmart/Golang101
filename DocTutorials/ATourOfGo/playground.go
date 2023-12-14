@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"runtime"
 )
 
 func main() {
@@ -111,4 +112,8 @@ func customAbs(x float64) float64 {
 
 func tutorial7() {
 	fmt.Println(customSqrt(2))
+}
+
+func tutorial8() {
+	fmt.Println("The operating system is: ", runtime.GOOS)
 }
