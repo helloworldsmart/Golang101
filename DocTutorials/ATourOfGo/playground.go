@@ -8,7 +8,8 @@ import (
 func main() {
 	//tutorial()
 	//tutorial2()
-	tutorial3()
+	//tutorial3()
+	tutorial4()
 }
 
 func tutorial() {
@@ -44,6 +45,14 @@ func tutorial3() {
 	sum := 0
 	for i := 0; i < 10; i++ {
 		sum += i
+	}
+	fmt.Println(sum)
+}
+
+func tutorial4() {
+	sum := 1
+	for sum < 1000 {
+		sum += sum
 	}
 	fmt.Println(sum)
 }
