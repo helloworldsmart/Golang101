@@ -9,7 +9,8 @@ func main() {
 	//tutorial()
 	//tutorial2()
 	//tutorial3()
-	tutorial4()
+	//tutorial4()
+	tutorial5()
 }
 
 func tutorial() {
@@ -55,4 +56,15 @@ func tutorial4() {
 		sum += sum
 	}
 	fmt.Println(sum)
+}
+
+func sqrt(x float64) string {
+	if x < 0 {
+		return sqrt(-x) + "i"
+	}
+	return fmt.Sprint(math.Sqrt(x))
+}
+
+func tutorial5() {
+	fmt.Println(sqrt(2), sqrt(-4))
 }
