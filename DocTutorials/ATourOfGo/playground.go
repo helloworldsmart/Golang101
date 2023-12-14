@@ -11,7 +11,8 @@ func main() {
 	//tutorial3()
 	//tutorial4()
 	//tutorial5()
-	tutorial6()
+	//tutorial6()
+	tutorial7()
 }
 
 func tutorial() {
@@ -85,4 +86,29 @@ func tutorial6() {
 		pow(3, 2, 10),
 		pow(3, 3, 20),
 	)
+}
+
+func customSqrt(x float64) float64 {
+	z := 1.0
+	for i := 0; i < 10; i++ {
+		prevZ := z
+		z -= (z*z - x) / (2 * z)
+		fmt.Printf("Iteration %d: %v\n", i+1, z)
+
+		if customAbs(prevZ-z) < 1e-6 {
+			break
+		}
+	}
+	return z
+}
+
+func customAbs(x float64) float64 {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func tutorial7() {
+	fmt.Println(customSqrt(2))
 }
