@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
-	tutorial()
-	tutorial2()
+	//tutorial()
+	//tutorial2()
+	tutorial3()
 }
 
 func tutorial() {
@@ -37,4 +38,12 @@ func tutorial2() {
 	fmt.Println(needInt(Small))
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
+}
+
+func tutorial3() {
+	sum := 0
+	for i := 0; i < 10; i++ {
+		sum += i
+	}
+	fmt.Println(sum)
 }
