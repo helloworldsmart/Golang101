@@ -10,7 +10,8 @@ func main() {
 	//tutorial2()
 	//tutorial3()
 	//tutorial4()
-	tutorial5()
+	//tutorial5()
+	tutorial6()
 }
 
 func tutorial() {
@@ -67,4 +68,18 @@ func sqrt(x float64) string {
 
 func tutorial5() {
 	fmt.Println(sqrt(2), sqrt(-4))
+}
+
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	}
+	return lim
+}
+
+func tutorial6() {
+	fmt.Println(
+		pow(3, 2, 10),
+		pow(3, 3, 20),
+	)
 }
