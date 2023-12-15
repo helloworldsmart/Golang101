@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"runtime"
+	"time"
 )
 
 func main() {
@@ -14,7 +15,8 @@ func main() {
 	//tutorial5()
 	//tutorial6()
 	//tutorial7()
-	tutorial8()
+	//tutorial8()
+	tutorial9()
 }
 
 func tutorial() {
@@ -126,5 +128,20 @@ func tutorial8() {
 		// freebsb, openbsb
 		// plan9, windows
 		fmt.Printf("%s.\n", os)
+	}
+}
+
+func tutorial9() {
+	fmt.Println("When's Saturday?")
+	today := time.Now().Weekday()
+	switch time.Saturday {
+	case today + 0:
+		fmt.Println("Today")
+	case today + 1:
+		fmt.Println("Tomorrow")
+	case today + 2:
+		fmt.Println("In two days.")
+	default:
+		fmt.Println("Too far away")
 	}
 }
