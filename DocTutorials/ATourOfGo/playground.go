@@ -18,7 +18,8 @@ func main() {
 	//tutorial8()
 	//tutorial9()
 	//tutorial10()
-	tutorial11()
+	//tutorial11()
+	tutorial12()
 }
 
 func tutorial() {
@@ -164,4 +165,14 @@ func tutorial11() {
 	defer fmt.Println("world")
 
 	fmt.Println("hello")
+}
+
+func tutorial12() {
+	fmt.Println("counting")
+
+	for i := 0; i < 10; i++ {
+		defer fmt.Println(i)
+	}
+
+	fmt.Println("Done")
 }
