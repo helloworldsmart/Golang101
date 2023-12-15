@@ -16,7 +16,8 @@ func main() {
 	//tutorial6()
 	//tutorial7()
 	//tutorial8()
-	tutorial9()
+	//tutorial9()
+	tutorial10()
 }
 
 func tutorial() {
@@ -143,5 +144,17 @@ func tutorial9() {
 		fmt.Println("In two days.")
 	default:
 		fmt.Println("Too far away")
+	}
+}
+
+func tutorial10() {
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
+	default:
+		fmt.Println("Good evening")
 	}
 }
