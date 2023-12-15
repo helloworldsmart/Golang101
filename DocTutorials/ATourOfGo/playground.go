@@ -13,7 +13,8 @@ func main() {
 	//tutorial4()
 	//tutorial5()
 	//tutorial6()
-	tutorial7()
+	//tutorial7()
+	tutorial8()
 }
 
 func tutorial() {
@@ -116,4 +117,14 @@ func tutorial7() {
 
 func tutorial8() {
 	fmt.Println("The operating system is: ", runtime.GOOS)
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux")
+	default:
+		// freebsb, openbsb
+		// plan9, windows
+		fmt.Printf("%s.\n", os)
+	}
 }
