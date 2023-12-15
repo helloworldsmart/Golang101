@@ -17,7 +17,8 @@ func main() {
 	//tutorial7()
 	//tutorial8()
 	//tutorial9()
-	tutorial10()
+	//tutorial10()
+	tutorial11()
 }
 
 func tutorial() {
@@ -157,4 +158,10 @@ func tutorial10() {
 	default:
 		fmt.Println("Good evening")
 	}
+}
+
+func tutorial11() {
+	defer fmt.Println("world")
+
+	fmt.Println("hello")
 }
