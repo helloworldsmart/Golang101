@@ -24,7 +24,8 @@ func main() {
 	//tutorial14()
 	//tutorial15()
 	//tutorial16()
-	tutorial17()
+	//tutorial17()
+	tutorial18()
 }
 
 func tutorial() {
@@ -227,4 +228,15 @@ var (
 
 func tutorial17() {
 	fmt.Println(v1, v2, v3, p)
+}
+
+func tutorial18() {
+	var a [2]string
+	a[0] = "Hello"
+	a[1] = "World"
+	fmt.Println(a[0], a[1])
+	fmt.Println(a)
+
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	fmt.Println(primes)
 }
