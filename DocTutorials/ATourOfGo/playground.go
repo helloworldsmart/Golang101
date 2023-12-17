@@ -19,7 +19,12 @@ func main() {
 	//tutorial9()
 	//tutorial10()
 	//tutorial11()
-	tutorial12()
+	//tutorial12()
+	//tutorial13()
+	//tutorial14()
+	//tutorial15()
+	//tutorial16()
+	tutorial17()
 }
 
 func tutorial() {
@@ -175,4 +180,51 @@ func tutorial12() {
 	}
 
 	fmt.Println("Done")
+}
+
+func tutorial13() {
+	i, j := 42, 2701
+
+	p := &i         // point to i
+	fmt.Println(*p) // read i through the pointer
+	*p = 21         // set i through the pointer
+	fmt.Println(i)  // see the new value of i
+
+	p = &j // point to j
+	fmt.Println(*p)
+	*p = *p / 37   // divide j through the pointer
+	fmt.Println(j) // see the new value of 1
+}
+
+type Vertex struct {
+	X int
+	Y int
+}
+
+func tutorial14() {
+	fmt.Println(Vertex{1, 2})
+}
+
+func tutorial15() {
+	v := Vertex{1, 2}
+	v.X = 4
+	fmt.Println(v.X)
+}
+
+func tutorial16() {
+	v := Vertex{1, 2}
+	p := &v
+	p.X = 1e9
+	fmt.Println(v)
+}
+
+var (
+	v1 = Vertex{1, 2} // has type Vertex
+	p  = &Vertex{1, 2}
+	v2 = Vertex{X: 1} // Y:0 is implicit
+	v3 = Vertex{}
+)
+
+func tutorial17() {
+	fmt.Println(v1, v2, v3, p)
 }
