@@ -11,7 +11,8 @@ type Book struct {
 	Author      string
 	ISBN        string
 	PublishDate string
-	Price       string
+	Price       float64
+	Stock       int
 }
 
 type Customer struct {
@@ -47,4 +48,51 @@ func main() {
 	// 自動遷移模式
 	db.AutoMigrate(&Book{}, &Customer{}, &Order{}, &OrderDetail{})
 
+	// 添加書籍
+	book := Book{
+		Title:       "The Go Programming Language",
+		Author:      "Alan A. A. Donovan & Brian W. Kernighan",
+		PublishDate: "2015-10-26",
+		Price:       46.99,
+		Stock:       10,
+	}
+	err = AddBook(db, book)
+	if err != nil {
+		panic("failed to add book")
+	}
+
+	// 刪除書籍
+	//err = DeleteBook(db, book.ID)
+	//if err != nil {
+	//	panic("failed to delete book")
+	//}
+
+	// 更新書籍庫存，假設增加 5 本
+	err = UpdateBookStock(db, book.ID, 5)
+	if err != nil {
+		panic("failed to update book stock")
+	}
+}
+
+func AddBook(db *gorm.DB, book Book) error {
+	result := db.Create(&book)
+	return result.Error
+}
+
+func DeleteBook(db *gorm.DB, bookID uint) error {
+	result := db.Delete(&Book{}, bookID)
+	return result.Error
+}
+
+func UpdateBookStock(db *gorm.DB, bookID uint, quantity int) error {
+	var book Book
+	// 搜索書籍
+	result := db.First(&book, bookID)
+	if result.Error != nil {
+		return result.Error
+	}
+	// 更新庫存
+	book.Stock += quantity
+	result = db.Save(&book)
+	return result.Error
 }
