@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 )
 
@@ -130,4 +131,18 @@ func tutorial11() {
 	i = mine
 	i2 := i.(MyInt)
 	fmt.Println(i2 + 1)
+}
+
+func doThings(i interface{}) {
+	switch j := i.(type) {
+	case nil:
+	case int:
+		fmt.Println("%d", j)
+	case MyInt:
+	case io.Reader:
+	case string:
+	case bool, rune:
+	default:
+
+	}
 }
