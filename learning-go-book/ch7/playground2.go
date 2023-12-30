@@ -67,3 +67,16 @@ func tutorial8() {
 	}
 	c.Program()
 }
+
+type Reader interface {
+	Read(p []byte) (n int, err error)
+}
+
+type Closer interface {
+	Closer() error
+}
+
+type ReadCloser interface {
+	Reader
+	Closer
+}
