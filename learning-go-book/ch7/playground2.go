@@ -80,3 +80,14 @@ type ReadCloser interface {
 	Reader
 	Closer
 }
+
+var i interface{}
+
+func tutorial9() {
+	i = 20
+	i = "hello"
+	i = struct {
+		FirstName string
+		LastName  string
+	}{"Fred", "Fredson"}
+}
