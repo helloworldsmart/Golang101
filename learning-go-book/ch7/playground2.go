@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 )
 
 func main() {
@@ -90,4 +92,31 @@ func tutorial9() {
 		FirstName string
 		LastName  string
 	}{"Fred", "Fredson"}
+}
+
+func tutorial10() {
+	data := map[string]interface{}{}
+	contents, err := ioutil.ReadFile("testdata/sample.json")
+	if err != nil {
+		return err
+	}
+	defer contents.Close()
+	json.Unmarshal(contents, &data)
+}
+
+type LinkedList struct {
+	Value interface{}
+	Next  *LinkedList
+}
+
+// Not Good
+func (ll *LinkedList) Insert(pos int, val interface{}) *LinkedList {
+	if ll == nil || pos == 0 {
+		return &LinkedList{
+			Value: val,
+			Next:  ll,
+		}
+	}
+	ll.Next == ll.Next.Insert(pos-1, val)
+	return ll
 }
