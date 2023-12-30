@@ -9,6 +9,7 @@ import (
 func main() {
 	tutorial7()
 	tutorial8()
+	tutorial11()
 }
 
 type Inner2 struct {
@@ -98,9 +99,9 @@ func tutorial10() {
 	data := map[string]interface{}{}
 	contents, err := ioutil.ReadFile("testdata/sample.json")
 	if err != nil {
-		return err
+		//return err
 	}
-	defer contents.Close()
+	//defer contents.Close()
 	json.Unmarshal(contents, &data)
 }
 
@@ -117,6 +118,16 @@ func (ll *LinkedList) Insert(pos int, val interface{}) *LinkedList {
 			Next:  ll,
 		}
 	}
-	ll.Next == ll.Next.Insert(pos-1, val)
+	//ll.Next == ll.Next.Insert(pos-1, val)
 	return ll
+}
+
+type MyInt int
+
+func tutorial11() {
+	var i interface{}
+	var mine MyInt = 20
+	i = mine
+	i2 := i.(MyInt)
+	fmt.Println(i2 + 1)
 }
