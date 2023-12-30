@@ -58,7 +58,7 @@ type Client struct {
 
 func (c Client) Program() {
 	// 從某處取得資料
-	c.L.Process(data)
+	//c.L.Process(data)
 }
 
 func tutorial8() {
