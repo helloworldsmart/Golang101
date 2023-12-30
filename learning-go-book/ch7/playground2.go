@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	tutorial()
+	tutorial7()
 }
 
 type Inner2 struct {
@@ -20,18 +20,18 @@ func (i Inner2) Double() string {
 	return i.IntPrinter(i.A * 2)
 }
 
-type Outer2 struct {
+type Outer3 struct {
 	Inner2
 	S string
 }
 
-func (o Outer2) IntPrinter(val int) string {
+func (o Outer3) IntPrinter(val int) string {
 	return fmt.Sprintf("Outer: %d", val)
 }
 
-func tutorial() {
-	o := Outer{
-		Inner: Inner2{
+func tutorial7() {
+	o := Outer3{
+		Inner2: Inner2{
 			A: 10,
 		},
 		S: "Hello",
