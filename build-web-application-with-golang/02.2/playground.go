@@ -11,7 +11,8 @@ func main() {
 	//tutorial5()
 	//tutorial6()
 	//tutorial7()
-	tutorial8()
+	//tutorial8()
+	tutorial9()
 }
 
 //func tutorial() {
@@ -136,4 +137,29 @@ func printDay(day Weekday) {
 func tutorial8() {
 	printDay(Sunday)
 	printDay(7)
+}
+
+func tutorial9() {
+	const (
+		x = iota
+		y = iota
+		z = iota
+		w
+	)
+
+	const v = iota
+
+	const (
+		h, i, j = iota, iota, iota
+	)
+
+	const (
+		a       = iota
+		b       = "B"
+		c       = iota
+		d, e, f = iota, iota, iota
+		g       = iota
+	)
+
+	fmt.Println(a, b, c, d, e, f, g, h, i, j, x, y, z, w, v)
 }
