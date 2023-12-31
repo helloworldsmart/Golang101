@@ -12,7 +12,12 @@ func main() {
 	//tutorial6()
 	//tutorial7()
 	//tutorial8()
-	tutorial9()
+	//tutorial9()
+	//tutorial10()
+	//tutorial11()
+	//tutorial12()
+	//tutorial13()
+	tutorial14()
 }
 
 //func tutorial() {
@@ -162,4 +167,61 @@ func tutorial9() {
 	)
 
 	fmt.Println(a, b, c, d, e, f, g, h, i, j, x, y, z, w, v)
+}
+
+func tutorial10() {
+	//var arr [n]type
+
+	var arr [10]int
+	arr[0] = 42
+	arr[1] = 13
+	fmt.Printf("The first element is %d\n", arr[0])
+	fmt.Printf("The last element is %d\n", arr[9])
+
+	a := [3]int{1, 2, 3}
+	b := [10]int{1, 2, 3}
+	c := [...]int{4, 5, 6}
+
+	fmt.Printf("%s\n", a)
+	fmt.Printf("%s\n", b)
+	fmt.Printf("%s\n", c)
+}
+
+func tutorial11() {
+	doubleArray := [2][4]int{[4]int{1, 2, 3, 4}, [4]int{5, 6, 7, 8}}
+	easyArray := [2][4]int{{1, 2, 3, 4}, {5, 6, 7, 8}}
+
+	fmt.Println(doubleArray, easyArray)
+}
+
+func tutorial12() {
+	//var slice []int
+	sliceValue := []byte{'a', 'b', 'c', 'd'}
+	fmt.Println(sliceValue)
+}
+
+func tutorial13() {
+	var ar = [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
+	var a, b []byte
+
+	a = ar[2:5]
+	b = ar[3:5]
+	fmt.Println(a, b)
+
+}
+
+func tutorial14() {
+	var array = [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
+	var aSlice, bSlice []byte
+
+	aSlice = array[:3]
+	aSlice = array[5:]
+	aSlice = array[:]
+
+	aSlice = array[3:7]
+	bSlice = aSlice[1:3]
+	bSlice = aSlice[:3]
+	bSlice = aSlice[0:5]
+	bSlice = aSlice[:]
+	fmt.Println(bSlice)
 }
