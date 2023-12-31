@@ -19,7 +19,8 @@ func main() {
 	//tutorial13()
 	//tutorial14()
 	//tutorial15()
-	tutorial16()
+	//tutorial16()
+	tutorial17()
 }
 
 //func tutorial() {
@@ -249,4 +250,12 @@ func tutorial16() {
 	}
 
 	delete(rating, "C")
+}
+
+func tutorial17() {
+	m := make(map[string]string)
+	m["Hello"] = "Bonjour"
+	m1 := m
+	m1["Hello"] = "Salut"
+	fmt.Println(m, m1)
 }
