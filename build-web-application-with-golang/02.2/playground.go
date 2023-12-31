@@ -17,7 +17,8 @@ func main() {
 	//tutorial11()
 	//tutorial12()
 	//tutorial13()
-	tutorial14()
+	//tutorial14()
+	tutorial15()
 }
 
 //func tutorial() {
@@ -224,4 +225,15 @@ func tutorial14() {
 	bSlice = aSlice[0:5]
 	bSlice = aSlice[:]
 	fmt.Println(bSlice)
+}
+
+func tutorial15() {
+	var numbers map[string]int
+
+	numbers = make(map[string]int)
+	numbers["one"] = 1
+	numbers["ten"] = 10
+	numbers["three"] = 3
+
+	fmt.Println("第三個數字是: ", numbers["three"])
 }
