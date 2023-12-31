@@ -10,7 +10,8 @@ func main() {
 	//tutorial4()
 	//tutorial5()
 	//tutorial6()
-	tutorial7()
+	//tutorial7()
+	tutorial8()
 }
 
 //func tutorial() {
@@ -89,4 +90,50 @@ func tutorial7() {
 	if err != nil {
 		fmt.Print(err)
 	}
+}
+
+type Weekday int
+
+const (
+	Sunday Weekday = iota
+	Monday
+	Tuesday
+	Wednesday
+	Thursday
+	Friday
+	Saturday
+)
+
+type Color string
+
+const (
+	Red   Color = "Red"
+	Green Color = "Green"
+	Blue  Color = "Blue"
+)
+
+func printDay(day Weekday) {
+	switch day {
+	case Sunday:
+		fmt.Println("Sunday")
+	case Monday:
+		fmt.Println("Monday")
+	case Tuesday:
+		fmt.Println("Tuesday")
+	case Wednesday:
+		fmt.Println("Wednesday")
+	case Thursday:
+		fmt.Println("Thursday")
+	case Friday:
+		fmt.Println("Friday")
+	case Saturday:
+		fmt.Println("Saturday")
+	default:
+		fmt.Println("Unknown Day")
+	}
+}
+
+func tutorial8() {
+	printDay(Sunday)
+	printDay(7)
 }
