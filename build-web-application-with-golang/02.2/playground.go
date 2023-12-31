@@ -18,7 +18,8 @@ func main() {
 	//tutorial12()
 	//tutorial13()
 	//tutorial14()
-	tutorial15()
+	//tutorial15()
+	tutorial16()
 }
 
 //func tutorial() {
@@ -236,4 +237,16 @@ func tutorial15() {
 	numbers["three"] = 3
 
 	fmt.Println("第三個數字是: ", numbers["three"])
+}
+
+func tutorial16() {
+	rating := map[string]float32{"C": 5, "Go": 4.5, "Python": 4.5, "C++": 2}
+	csharpRating, ok := rating["C#"]
+	if ok {
+		fmt.Println("C# is in the map and its rating is ", csharpRating)
+	} else {
+		fmt.Println("We have no rating associated with C# in the map")
+	}
+
+	delete(rating, "C")
 }
