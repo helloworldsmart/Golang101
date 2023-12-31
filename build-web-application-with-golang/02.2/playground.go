@@ -9,7 +9,8 @@ func main() {
 	//tutorial3()
 	//tutorial4()
 	//tutorial5()
-	tutorial6()
+	//tutorial6()
+	tutorial7()
 }
 
 //func tutorial() {
@@ -89,7 +90,3 @@ func tutorial7() {
 		fmt.Print(err)
 	}
 }
-
-//func tutorial2() {
-//	fmt.Printf("Hello, world \n")
-//}
