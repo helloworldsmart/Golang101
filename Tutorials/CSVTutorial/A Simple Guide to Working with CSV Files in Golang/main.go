@@ -117,3 +117,5 @@ func main() {
 
 	fmt.Println("Data appended to csv file successfully.")
 }
+
+// Refer: https://www.kelche.co/blog/go/csv/
