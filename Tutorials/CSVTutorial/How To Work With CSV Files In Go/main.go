@@ -1,9 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gocarina/gocsv"
 	"os"
 )
+
+type Record struct {
+	Name   string `csv:"name"`
+	Gender string `csv:"gender"`
+}
 
 type Person struct {
 	Name   string `csv:"name"`
@@ -12,21 +18,39 @@ type Person struct {
 }
 
 func main() {
-	file, err := os.Create("data2.csv")
+	// Open the CSV file
+	file, err := os.Open("data2.csv")
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
 
-	people := []*Person{
-		{"Alice", 25, "Female"},
-		{"Bob", 30, "Male"},
-		{"Charlie", 35, "Male"},
-	}
-
-	if err := gocsv.MarshalFile(&people, file); err != nil {
+	// Read the CSV file into a slice of Record structs
+	var records []Record
+	if err := gocsv.UnmarshalFile(file, &records); err != nil {
 		panic(err)
 	}
+
+	// Print the records
+	for _, record := range records {
+		fmt.Printf("Name: %s, Gender: %s\n", record.Name, record.Gender)
+	}
+
+	//file, err := os.Create("data2.csv")
+	//if err != nil {
+	//	panic(err)
+	//}
+	//defer file.Close()
+	//
+	//people := []*Person{
+	//	{"Alice", 25, "Female"},
+	//	{"Bob", 30, "Male"},
+	//	{"Charlie", 35, "Male"},
+	//}
+	//
+	//if err := gocsv.MarshalFile(&people, file); err != nil {
+	//	panic(err)
+	//}
 }
 
 //func main() {
