@@ -25,7 +25,9 @@ func main() {
 	//tutorial15()
 	//tutorial16()
 	//tutorial17()
-	tutorial18()
+	//tutorial18()
+	//tutorial19()
+	tutorial20()
 }
 
 func tutorial() {
@@ -260,4 +262,26 @@ func tutorial19() {
 	board[1][2] = "X"
 	board[1][0] = "O"
 	board[0][2] = "X"
+}
+
+// Appending to a slice
+func tutorial20() {
+	var s []int
+	printSlice(s)
+
+	// append works on nil slices.
+	s = append(s, 0)
+	printSlice(s)
+
+	// The slice grows as needs.
+	s = append(s, 1)
+	printSlice(s)
+
+	// We can add more than one element at a time.
+	s = append(s, 2, 3, 4)
+	printSlice(s)
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
