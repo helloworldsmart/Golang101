@@ -27,7 +27,8 @@ func main() {
 	//tutorial17()
 	//tutorial18()
 	//tutorial19()
-	tutorial20()
+	//tutorial20()
+	tutorial21()
 }
 
 func tutorial() {
@@ -284,4 +285,15 @@ func tutorial20() {
 
 func printSlice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+
+// Range
+func tutorial21() {
+	var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+
+	// i is index
+	// v is value
+	for i, v := range pow {
+		fmt.Printf("2**%d = %d\n", i, v)
+	}
 }
