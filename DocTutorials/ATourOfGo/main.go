@@ -1,10 +1,15 @@
 package main
 
-import "golang.org/x/tour/pic"
+import (
+	"fmt"
+	"golang.org/x/tour/pic"
+)
 
 func main() {
 	pic.Show(Pic)
+	tutorial23()
 }
+
 func Pic(dx, dy int) [][]uint8 {
 	result := make([][]uint8, dy)
 
@@ -18,4 +23,18 @@ func Pic(dx, dy int) [][]uint8 {
 		}
 	}
 	return result
+}
+
+type Vertex2 struct {
+	Lat, Long float64
+}
+
+var m map[string]Vertex2
+
+func tutorial23() {
+	m = make(map[string]Vertex2)
+	m["Bell Labs"] = Vertex2{
+		40.68433, -74.399967,
+	}
+	fmt.Println(m["Bell Labs"])
 }
