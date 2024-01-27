@@ -8,6 +8,7 @@ import (
 func main() {
 	pic.Show(Pic)
 	tutorial23()
+	tutorial24()
 }
 
 func Pic(dx, dy int) [][]uint8 {
@@ -37,4 +38,17 @@ func tutorial23() {
 		40.68433, -74.399967,
 	}
 	fmt.Println(m["Bell Labs"])
+}
+
+func tutorial24() {
+	var m = map[string]Vertex2{
+		"Bell Labs": Vertex2{
+			40.68433, -74.39967,
+		},
+		"Google": Vertex2{
+			37.42202, -122.08408,
+		},
+	}
+
+	fmt.Println(m)
 }
