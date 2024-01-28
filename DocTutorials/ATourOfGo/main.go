@@ -16,7 +16,8 @@ func main() {
 	//tutorial26()
 	wc.Test(WordCount)
 	//tutorial27()
-	tutorial28()
+	//tutorial28()
+	tutorial29()
 }
 
 func Pic(dx, dy int) [][]uint8 {
@@ -131,5 +132,17 @@ func tutorial28() {
 			pos(i),
 			neg(-2*i),
 		)
+	}
+}
+
+// Exercise: Fibonacci closure
+func fibonacci() func() int {
+
+}
+
+func tutorial29() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
 	}
 }
