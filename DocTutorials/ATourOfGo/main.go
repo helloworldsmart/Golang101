@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"golang.org/x/tour/pic"
 	"golang.org/x/tour/wc"
+	"strings"
 )
 
 func main() {
@@ -84,5 +85,15 @@ func tutorial26() {
 
 // Exercise: Maps
 func WordCount(s string) map[string]int {
-	return map[string]int{"x": 1}
+
+	wordCounts := make(map[string]int)
+
+	words := strings.Fields(s)
+
+	for _, word := range words {
+		wordCounts[word]++
+	}
+
+	return wordCounts
+	//return map[string]int{"x": 1}
 }
