@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"golang.org/x/tour/pic"
 	"golang.org/x/tour/wc"
+	"math"
 	"strings"
 )
 
@@ -12,8 +13,9 @@ func main() {
 	//tutorial23()
 	//tutorial24()
 	//tutorial25()
-	tutorial26()
+	//tutorial26()
 	wc.Test(WordCount)
+	tutorial27()
 }
 
 func Pic(dx, dy int) [][]uint8 {
@@ -96,4 +98,18 @@ func WordCount(s string) map[string]int {
 
 	return wordCounts
 	//return map[string]int{"x": 1}
+}
+
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
+}
+
+func tutorial27() {
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(5, 12))
+
+	fmt.Println(compute(hypot))
+	fmt.Println(compute(math.Pow))
 }
