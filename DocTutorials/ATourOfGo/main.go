@@ -7,9 +7,10 @@ import (
 
 func main() {
 	pic.Show(Pic)
-	tutorial23()
-	tutorial24()
-	tutorial25()
+	//tutorial23()
+	//tutorial24()
+	//tutorial25()
+	tutorial26()
 }
 
 func Pic(dx, dy int) [][]uint8 {
@@ -61,4 +62,20 @@ func tutorial25() {
 	}
 
 	fmt.Println(m)
+}
+
+func tutorial26() {
+	m := make(map[string]int)
+
+	m["Answer"] = 42
+	fmt.Println("The value:", m["Answer"])
+
+	m["Answer"] = 48
+	fmt.Println("The value:", m["Answer"])
+
+	delete(m, "Answer")
+	fmt.Println("The value:", m["Answer"])
+
+	v, ok := m["Answer"]
+	fmt.Println("The value:", v, "Present?", ok)
 }
