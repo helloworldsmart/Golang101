@@ -15,7 +15,8 @@ func main() {
 	//tutorial25()
 	//tutorial26()
 	wc.Test(WordCount)
-	tutorial27()
+	//tutorial27()
+	tutorial28()
 }
 
 func Pic(dx, dy int) [][]uint8 {
@@ -112,4 +113,23 @@ func tutorial27() {
 
 	fmt.Println(compute(hypot))
 	fmt.Println(compute(math.Pow))
+}
+
+// Function closures
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
+func tutorial28() {
+	pos, neg := adder(), adder()
+	for i := 0; i < 10; i++ {
+		fmt.Println(
+			pos(i),
+			neg(-2*i),
+		)
+	}
 }
