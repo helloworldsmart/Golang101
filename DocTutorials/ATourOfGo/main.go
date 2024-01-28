@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"golang.org/x/tour/pic"
+	"golang.org/x/tour/wc"
 )
 
 func main() {
@@ -11,6 +12,7 @@ func main() {
 	//tutorial24()
 	//tutorial25()
 	tutorial26()
+	wc.Test(WordCount)
 }
 
 func Pic(dx, dy int) [][]uint8 {
@@ -78,4 +80,9 @@ func tutorial26() {
 
 	v, ok := m["Answer"]
 	fmt.Println("The value:", v, "Present?", ok)
+}
+
+// Exercise: Maps
+func WordCount(s string) map[string]int {
+	return map[string]int{"x": 1}
 }
