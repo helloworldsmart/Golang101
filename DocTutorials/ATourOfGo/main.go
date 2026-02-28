@@ -151,3 +151,7 @@ func tutorial29() {
 		fmt.Println(f())
 	}
 }
+
+type VertexFloat struct {
+	X, Y float64
+}
