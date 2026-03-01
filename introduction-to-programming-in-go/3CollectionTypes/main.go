@@ -173,10 +173,70 @@ type Vertex struct {
 	Lat, Long float64
 }
 
-var m map[string]Vertex
+var m map[string]Vertex{
+	"Bell Lab": {40.68433, -74.39967},
+	"Google": {37.42202, -122.08408},
+}
 
 func main() {
 	m = make(map[string]Vertex)
-	m["Bell Lab"] = Vertex{40.68433, -74.39967}
-	fmt.Println(m["Bell Labs"])
+	m["Splice"] = Vertex{34.05641, -118.48175}
+	fmt.Println(m["Splice"])
+	delete(m, "Splice")
+	ftm.Printf("%v\n", m)
+	name, ok := m["Splice"]
+	ftm.Printf("key 'Splice' is present?: %t - value: %v\n", ok, name)
+	name, ok = m["Google"]
+	ftm.Printf("key 'Google' is present?: %t - value: %v\n", ok, name)
+}
+
+strings.Count("five", "")
+
+
+package main
+
+import (
+   "strings"
+   "fmt"
+   "encoding/json"
+   "strconv"
+)
+
+
+// Error 1
+func WordCount(s string) map[string]int {
+   // write your solution here
+  n := strings.Count(s, "")
+  m := map[string]int {
+     s: n,
+  }
+//  return map[string]int{} //returning an empty map, modify the statement to return the correct answer
+  return m
+}
+
+// Error 2
+func WordCount(s string) map[string]int {
+   // write your solution here
+  m := map[string]int {}
+  words := strings.Split(s, " ")
+  for _, word := range words {
+     n := strings.Count(word, "")
+     m[word] = n
+  } 
+
+//  return map[string]int{} //returning an empty map, modify the statement to return the correct answer
+  return m
+}
+
+// Succeeded
+func WordCount(s string) map[string]int {
+   // write your solution here
+   m := make(map[string]int)
+   words := strings.Fields(s)
+   for _, word := range words {
+      m[word]++
+   }
+   //  return map[string]int{} //returning an empty map, modify the statement to return the correct answer
+
+   return m
 }
